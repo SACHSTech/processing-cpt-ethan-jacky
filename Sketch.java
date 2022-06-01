@@ -18,7 +18,8 @@ public class Sketch extends PApplet {
   public void setup() {
     background(210, 255, 173);
   }
-
+ //jacky has a hot cousin 
+/*/
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
@@ -28,6 +29,9 @@ public class Sketch extends PApplet {
     stroke(128);
     line(150, 25, 270, 350);  
 
+    rect(23, 23, 232, 23);
+
+    
     stroke(255);
     line(50, 125, 70, 50);  
   }
