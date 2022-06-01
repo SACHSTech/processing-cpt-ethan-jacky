@@ -1,7 +1,14 @@
 import processing.core.PApplet;
 
 public class Sketch2 extends PApplet {
-	
+
+  boolean upPressed = false;
+  boolean downPressed = false;
+  boolean leftPressed = false;
+  boolean rightPressed = false;
+  
+	float circleX = 150;
+  float circleY = 150;
 	
   /**
    * Called once at the beginning of execution, put your size all in this method
@@ -25,12 +32,26 @@ public class Sketch2 extends PApplet {
   public void draw() {
 	  
 	// sample code, delete this stuff
-    stroke(128);
-    line(150, 25, 270, 350);  
-
-    stroke(255);
-    line(50, 125, 70, 50);  
-  }
-  
+    
+  // yellow circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+         circleX++; 
+        }
+      }
+      // draw circle
+        ellipse(circleX, circleY, 50, 50);
+          fill(0, 0, 255);
+        
   // define other methods down here.
+}
 }
