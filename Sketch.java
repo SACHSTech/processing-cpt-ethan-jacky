@@ -2,8 +2,6 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Sketch extends PApplet {
-
- 
   
 	boolean upPressed = false;
   boolean downPressed = false;
@@ -52,7 +50,7 @@ public class Sketch extends PApplet {
         }
       }
       // draw circle
-        ellipse(circleX, circleY, 10, 10);
+        ellipse(circleX, circleY, 30, 30);
           fill(0, 0, 255);
         
       
