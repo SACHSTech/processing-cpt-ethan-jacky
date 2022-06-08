@@ -25,7 +25,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(1000, 1000);
+    size(800, 800);
   }
 
   /** 
@@ -38,7 +38,7 @@ public class Sketch extends PApplet {
     circleDiameter = 40;
 
     imgBackground = loadImage("background.jpeg");
-    imgBackground.resize(1000,1000);
+    imgBackground.resize(800,800);
     imgGameOver = loadImage("gameover.png");
     imgOneLife = loadImage("onelife.png");
     imgScary = loadImage("scary.png");
