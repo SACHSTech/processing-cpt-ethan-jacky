@@ -7,17 +7,19 @@ public class Sketch1 extends PApplet {
   boolean downPressed = false;
   boolean leftPressed = false;
   boolean rightPressed = false;
-
   float circleX;
   float circleY;
   float circleDiameter;
+
+  boolean alive = true;
+  int playerLives = 3;
 
   PImage imgBackground;
   PImage imgGameOver;
   PImage imgOneLife;
   PImage imgScary;
   PImage imgYouWin;
-
+  
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
