@@ -8,9 +8,10 @@ public class Sketch extends PApplet {
   boolean leftPressed = false;
   boolean rightPressed = false;
 
-  float circleX = 150;
-  float circleY = 150;
-  
+  float circleX;
+  float circleY;
+  float circleDiameter;
+
   PImage imgBackground;
   PImage imgGameOver;
   PImage imgOneLife;
@@ -30,6 +31,10 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
+    circleX = width;
+    circleY = height;
+    circleDiameter = 40;
+
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(1000,1000);
     imgGameOver = loadImage("gameover.png");
@@ -40,7 +45,20 @@ public class Sketch extends PApplet {
 
   public void draw() {
   
-    image(imgBackground, 0, -100);
+    image(imgBackground, 0, 0);
+
+    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+
+      if (mousePressed) {
+        // mouse is inside the circle and clicked. 
+        circleX = mouseX;
+        circleY = mouseY;
+  
+      } 
+      else {
+        mouseClicked(); {
+    }
+      }}
     
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
@@ -58,7 +76,7 @@ public class Sketch extends PApplet {
         }
       }
       // draw circle
-        ellipse(circleX, circleY, 30, 30);
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
         
       
