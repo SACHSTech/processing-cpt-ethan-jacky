@@ -3,14 +3,6 @@ import processing.core.PImage;
 
 public class Sketch1 extends PApplet {
   
-  boolean upPressed = false;
-  boolean downPressed = false;
-  boolean leftPressed = false;
-  boolean rightPressed = false;
-
-  float circleX = 150;
-  float circleY = 150;
-  
   PImage imgBackground;
   PImage imgGameOver;
   PImage imgOneLife;
@@ -40,30 +32,4 @@ public class Sketch1 extends PApplet {
 
   public void draw() {
   
-    image(imgBackground, 0, -100);
     
-        // circle moves accordingly to what arrow directions user presses
-      if (keyPressed) {
-        if (keyCode == UP) {
-          circleY--;
-        } 
-        else if (keyCode == DOWN) {
-          circleY++;
-        } 
-        else if(keyCode == LEFT){
-          circleX--;
-        }
-        else if(keyCode == RIGHT){
-         circleX++; 
-        }
-      }
-      // draw circle
-        ellipse(circleX, circleY, 30, 30);
-          fill(0, 0, 255);
-        
-      
-
-    }
-  
-  
-}
