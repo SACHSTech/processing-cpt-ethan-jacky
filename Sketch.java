@@ -3,7 +3,7 @@ import processing.core.PImage;
 
 public class Sketch extends PApplet {
   
-	boolean upPressed = false;
+  boolean upPressed = false;
   boolean downPressed = false;
   boolean leftPressed = false;
   boolean rightPressed = false;
@@ -12,6 +12,11 @@ public class Sketch extends PApplet {
   float circleY = 150;
   
   PImage imgBackground;
+  PImage imgGameOver;
+  PImage imgOneLife;
+  PImage imgScary;
+  PImage imgYouWin;
+
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
@@ -20,7 +25,6 @@ public class Sketch extends PApplet {
     size(1000, 1000);
   }
 
-    
   /** 
    * Called once at the beginning of execution.  Add initial set up
    * values here i.e background, stroke, fill etc.
@@ -28,13 +32,17 @@ public class Sketch extends PApplet {
   public void setup() {
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(1000,1000);
+    imgGameOver = loadImage("gameover.png");
+    imgOneLife = loadImage("onelife.png");
+    imgScary = loadImage("scary.png");
+    imgYouWin = loadImage("youwin.png");
     }
 
   public void draw() {
   
     image(imgBackground, 0, -100);
     
-        // yellow circle moves accordingly to what arrow directions user presses
+        // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
           circleY--;
