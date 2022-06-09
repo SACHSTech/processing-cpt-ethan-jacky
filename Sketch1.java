@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Sketch extends PApplet {
+public class Sketch1 extends PApplet {
   
   boolean upPressed = false;
   boolean downPressed = false;
