@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Sketch1 extends PApplet {
+public class Sketch extends PApplet {
   
   boolean upPressed = false;
   boolean downPressed = false;
@@ -19,13 +19,23 @@ public class Sketch1 extends PApplet {
   PImage imgOneLife;
   PImage imgScary;
   PImage imgYouWin;
-  
+
+  /*
+  Screen 1 - Home Screen
+  Screen 2 - Level 1
+  Screen 3 - Level 2
+  Screen 4 - Level 3
+  Screen 5 - Game over
+  Screen 6 - You Win!
+   */
+  int screen = 1;
+
   /**
    * Called once at the beginning of execution, put your size all in this method
    */
   public void settings() {
 	// put your size call here
-    size(800, 800);
+    size(750, 750);
   }
 
   /** 
@@ -38,7 +48,7 @@ public class Sketch1 extends PApplet {
     circleDiameter = 40;
 
     imgBackground = loadImage("background.jpeg");
-    imgBackground.resize(800,800);
+    imgBackground.resize(750,750);
     imgGameOver = loadImage("gameover.png");
     imgOneLife = loadImage("onelife.png");
     imgScary = loadImage("scary.png");
@@ -84,6 +94,5 @@ public class Sketch1 extends PApplet {
       
 
     }
-  
   
 }
