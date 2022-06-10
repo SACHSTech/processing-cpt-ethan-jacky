@@ -114,8 +114,35 @@ public class Sketch extends PApplet {
     if (screen == 6) {
       youWin();
     }
+  }
+  
+  public void homeScreen() {
+    background(imgHomescreen);
 
-    image(imgBackground, 0, 0);
+    fill(255); // White
+    textSize(150);
+    text("SCARY MAZE GAME", 50, 150);
+
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
+      fill(246, 255, 0); // Yellow
+      rect(50, 300, 700, 50);
+  
+      fill(255); // Black
+      textSize(50);
+      text("PLAY", 55, 345);
+  
+      if (mousePressed == true) {
+        screen = 2;
+      }
+    }
+    else {
+      mousePressed = false; {
+      }
+    } 
+  }
+
+  public void levelOne() {
+    background(imgLevelOne);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
 
@@ -149,29 +176,84 @@ public class Sketch extends PApplet {
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
     }
-  
-  public void homeScreen() {
-    background(imgHomescreen);
 
-    fill(255); // White
-    textSize(150);
-    text("SCARY MAZE GAME", 50, 150);
+  public void levelTwo() {
+    background(imgLevelTwo);
 
-    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
-      fill(246, 255, 0); // Yellow
-      rect(50, 300, 700, 50);
+    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+
+      if (mousePressed) {
+        // mouse is inside the circle and clicked. 
+        circleX = mouseX;
+        circleY = mouseY;
   
-      fill(255); // Black
-      textSize(50);
-      text("PLAY", 55, 345);
-  
-      if (mousePressed == true) {
-        screen = 2;
-      }
+      } 
+      else {
+        mouseClicked(); {
     }
-    else {
-      mousePressed = false; {
+      }}
+    
+        // circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+         circleX++; 
+        }
       }
-    } 
+      // draw circle
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+          fill(0, 0, 255);
+    }
+
+  public void levelThree() {
+    background(imgLevelThree);
+
+    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+
+      if (mousePressed) {
+        // mouse is inside the circle and clicked. 
+        circleX = mouseX;
+        circleY = mouseY;
+  
+      } 
+      else {
+        mouseClicked(); {
+    }
+      }}
+    
+        // circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+         circleX++; 
+        }
+      }
+      // draw circle
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+          fill(0, 0, 255);
+    }
+
+  public void gameOver() {
+    background(imgBackground);
+  }
+
+  public void youWin() {
+    background(255);
   }
 }
