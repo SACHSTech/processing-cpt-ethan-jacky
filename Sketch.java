@@ -14,7 +14,7 @@ public class Sketch extends PApplet {
   boolean alive = true;
   int playerLives = 3;
 
-  int timerOne = 60;
+  int timerOne = 6000;
   int timerTwo = 90;
   int timerThree = 120;
 
@@ -120,16 +120,16 @@ public class Sketch extends PApplet {
     background(imgHomescreen);
 
     fill(255); // White
-    textSize(150);
-    text("SCARY MAZE GAME", 50, 150);
+    textSize(70);
+    text("SCARY MAZE GAME", 75, 150);
 
-    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
+    if ((mouseX >= 0 && mouseX <= 800) && (mouseY >= 0 && mouseY <= 800)) {
       fill(246, 255, 0); // Yellow
-      rect(50, 300, 700, 50);
+      rect(50, 600, 700, 50);
   
       fill(255); // Black
       textSize(50);
-      text("PLAY", 55, 345);
+      text("PLAY", 55, 645);
   
       if (mousePressed == true) {
         screen = 2;
@@ -299,7 +299,7 @@ public class Sketch extends PApplet {
 
   public void gameOver() {
     background(imgBackground);
-    image(imgGameOver, 400, 300);
+    image(imgGameOver, 220, 50);
     image(imgScary, 100, 100);
     image(imgScary, 700, 100);
 
@@ -361,7 +361,7 @@ public class Sketch extends PApplet {
 
   public void youWin() {
     background(255);
-    image(imgYouWin, 400, 400);
+    image(imgYouWin, 220, 220);
 
     if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
       fill(1, 94, 41); // Green
