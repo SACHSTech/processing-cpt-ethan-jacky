@@ -16,12 +16,14 @@ public class Sketch extends PApplet {
 
   PImage imgBackground;
   PImage imgGameOver;
-  PImage imgOneLife;
-  PImage imgScary;
-  PImage imgYouWin;
+  PImage imgHomescreen;
   PImage imgLevelOne;
   PImage imgLevelTwo;
   PImage imgLevelThree;
+  PImage imgOneLife;
+  PImage imgScary;
+  PImage imgYouWin;
+
   /*
   Screen 1 - Home Screen
   Screen 2 - Level 1
@@ -52,16 +54,35 @@ public class Sketch extends PApplet {
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(750,750);
     imgGameOver = loadImage("gameover.png");
-    imgOneLife = loadImage("onelife.png");
-    imgScary = loadImage("scary.png");
-    imgYouWin = loadImage("youwin.png");
+    imgHomescreen = loadImage("homescreen.jpg");
     imgLevelOne = loadImage("level1.jpg");
     imgLevelTwo = loadImage("level2.jpg");
     imgLevelThree = loadImage("level3.jpg");
+    imgOneLife = loadImage("onelife.png");
+    imgScary = loadImage("scary.png");
+    imgYouWin = loadImage("youwin.png");
     }
 
   public void draw() {
-  
+    if (screen == 1) {
+      homeScreen();
+    }
+    if (screen == 2) {
+      levelOne();
+    }
+    if (screen == 3) {
+      levelTwo();
+    }
+    if (screen == 4) {
+      levelThree();
+    }
+    if (screen == 5) {
+      gameOver();
+    }
+    if (screen == 6) {
+      youWin();
+    }
+
     image(imgBackground, 0, 0);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
