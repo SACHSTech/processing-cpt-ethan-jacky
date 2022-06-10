@@ -124,5 +124,5 @@ public class Sketch extends PApplet {
   
   public void homeScreen() {
     background(imgHomescreen);
-  }
+  } 
 }
