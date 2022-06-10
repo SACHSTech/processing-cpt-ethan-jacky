@@ -14,6 +14,10 @@ public class Sketch extends PApplet {
   boolean alive = true;
   int playerLives = 3;
 
+  int timerOne = 60;
+  int timerTwo = 90;
+  int timerThree = 120;
+
   PImage imgBackground;
   PImage imgGameOver;
   PImage imgHomescreen;
@@ -73,12 +77,36 @@ public class Sketch extends PApplet {
     }
     if (screen == 2) {
       levelOne();
+
+      timerOne--;
+      System.out.println(timerOne);
+
+      if (timerOne == 0) {
+        playerLives = 0;
+        screen = 5;
+      }
     }
     if (screen == 3) {
       levelTwo();
+
+      timerTwo--;
+      System.out.println(timerTwo);
+
+      if (timerTwo == 0) {
+        playerLives = 0;
+        screen = 5;
+      }
     }
     if (screen == 4) {
       levelThree();
+
+      timerThree--;
+      System.out.println(timerThree);
+
+      if (timerThree == 0) {
+        playerLives = 0;
+        screen = 5;
+      }
     }
     if (screen == 5) {
       gameOver();
