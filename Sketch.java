@@ -39,7 +39,7 @@ public class Sketch extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(750, 750);
+    size(800, 800);
   }
 
   /** 
@@ -52,12 +52,16 @@ public class Sketch extends PApplet {
     circleDiameter = 40;
 
     imgBackground = loadImage("background.jpeg");
-    imgBackground.resize(750,750);
+    imgBackground.resize(800,800);
     imgGameOver = loadImage("gameover.png");
     imgHomescreen = loadImage("homescreen.jpg");
+    imgHomescreen.resize(800,800);
     imgLevelOne = loadImage("level1.jpg");
+    imgLevelOne.resize(800,800);
     imgLevelTwo = loadImage("level2.jpg");
+    imgLevelTwo.resize(800,800);
     imgLevelThree = loadImage("level3.jpg");
+    imgLevelThree.resize(800,800);
     imgOneLife = loadImage("onelife.png");
     imgScary = loadImage("scary.png");
     imgYouWin = loadImage("youwin.png");
@@ -116,9 +120,9 @@ public class Sketch extends PApplet {
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
-        
-      
-
     }
   
+  public void homeScreen() {
+    background(imgHomescreen);
+  }
 }
