@@ -251,10 +251,9 @@ public class Sketch1 extends PApplet {
 
   public void gameOver() {
     background(imgBackground);
-
-    fill(0); // Black
-    textSize(75);
-    text("GAME OVER! YOU LOST!!!", 25, 150);
+    image(imgGameOver, 400, 300);
+    image(imgScary, 100, 100);
+    image(imgScary, 700, 100);
 
   if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
     fill(1, 94, 41); // Green
@@ -314,5 +313,60 @@ public class Sketch1 extends PApplet {
 
   public void youWin() {
     background(255);
+    image(imgYouWin, 400, 400);
+
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
+      fill(1, 94, 41); // Green
+      rect(50, 300, 700, 50);
+  
+      fill(0); // Black
+      textSize(50);
+      text("TRY AGAIN", 55, 345);
+  
+      if (mousePressed == true) {
+        timerOne = 60;
+        timerTwo = 90;
+        timerThree = 120;
+        alive = true;
+        playerLives = 3;
+        circleX = 200;
+        circleY = 400;
+        upPressed = false;
+        downPressed = false;
+        leftPressed = false;
+        rightPressed = false;
+        screen = 2;
+      }
+    }
+    else {
+      fill(0); // Black
+      rect(50, 300, 700, 50);
+  
+      fill(1, 94, 41); // Green
+      textSize(50);
+      text("TRY AGAIN", 55, 345);
+    }
+    
+  
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 550 && mouseY <= 600)) {
+      fill(0, 8, 150); // Blue
+      rect(50, 550, 700, 50);
+  
+      fill(0); // Black
+      textSize(50);
+      text("NO THANKS", 55, 595);
+  
+      if (mousePressed == true) {
+        screen = 1;
+      }
+    }
+    else {
+      fill(0); // Black
+      rect(50, 550, 700, 50);
+  
+      fill(0, 8, 150); // Blue
+      textSize(50);
+      text("NO THANKS", 55, 595);
+    }
   }
 }
