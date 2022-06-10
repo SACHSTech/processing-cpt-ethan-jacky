@@ -16,6 +16,10 @@ public class Sketch1 extends PApplet {
 
   PImage imgBackground;
   PImage imgGameOver;
+  PImage imgHomescreen;
+  PImage imgLevelOne;
+  PImage imgLevelTwo;
+  PImage imgLevelThree;
   PImage imgOneLife;
   PImage imgScary;
   PImage imgYouWin;
@@ -35,7 +39,7 @@ public class Sketch1 extends PApplet {
    */
   public void settings() {
 	// put your size call here
-    size(750, 750);
+    size(800, 800);
   }
 
   /** 
@@ -48,15 +52,41 @@ public class Sketch1 extends PApplet {
     circleDiameter = 40;
 
     imgBackground = loadImage("background.jpeg");
-    imgBackground.resize(750,750);
+    imgBackground.resize(800,800);
     imgGameOver = loadImage("gameover.png");
+    imgHomescreen = loadImage("homescreen.jpg");
+    imgHomescreen.resize(800,800);
+    imgLevelOne = loadImage("level1.jpg");
+    imgLevelOne.resize(800,800);
+    imgLevelTwo = loadImage("level2.jpg");
+    imgLevelTwo.resize(800,800);
+    imgLevelThree = loadImage("level3.jpg");
+    imgLevelThree.resize(800,800);
     imgOneLife = loadImage("onelife.png");
     imgScary = loadImage("scary.png");
     imgYouWin = loadImage("youwin.png");
     }
 
   public void draw() {
-  
+    if (screen == 1) {
+      homeScreen();
+    }
+    if (screen == 2) {
+      levelOne();
+    }
+    if (screen == 3) {
+      levelTwo();
+    }
+    if (screen == 4) {
+      levelThree();
+    }
+    if (screen == 5) {
+      gameOver();
+    }
+    if (screen == 6) {
+      youWin();
+    }
+
     image(imgBackground, 0, 0);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
@@ -90,9 +120,30 @@ public class Sketch1 extends PApplet {
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
-        
-      
-
     }
   
+  public void homeScreen() {
+    background(imgHomescreen);
+
+    fill(255); // White
+    textSize(150);
+    text("SCARY MAZE GAME", 50, 150);
+
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
+      fill(246, 255, 0); // Yellow
+      rect(50, 300, 700, 50);
+  
+      fill(255); // Black
+      textSize(50);
+      text("PLAY", 55, 345);
+  
+      if (mousePressed == true) {
+        screen = 2;
+      }
+    }
+    else {
+      mousePressed = false; {
+      }
+    } 
+  }
 }

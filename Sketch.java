@@ -124,5 +124,26 @@ public class Sketch extends PApplet {
   
   public void homeScreen() {
     background(imgHomescreen);
-  } 
+
+    fill(255); // White
+    textSize(150);
+    text("SCARY MAZE GAME", 50, 150);
+
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
+      fill(246, 255, 0); // Yellow
+      rect(50, 300, 700, 50);
+  
+      fill(255); // Black
+      textSize(50);
+      text("PLAY", 55, 345);
+  
+      if (mousePressed == true) {
+        screen = 2;
+      }
+    }
+    else {
+      mousePressed = false; {
+      }
+    } 
+  }
 }
