@@ -19,7 +19,9 @@ public class Sketch extends PApplet {
   PImage imgOneLife;
   PImage imgScary;
   PImage imgYouWin;
-
+  PImage imgLevelOne;
+  PImage imgLevelTwo;
+  PImage imgLevelThree;
   /*
   Screen 1 - Home Screen
   Screen 2 - Level 1
@@ -53,6 +55,9 @@ public class Sketch extends PApplet {
     imgOneLife = loadImage("onelife.png");
     imgScary = loadImage("scary.png");
     imgYouWin = loadImage("youwin.png");
+    imgLevelOne = loadImage("level1.jpg");
+    imgLevelTwo = loadImage("level2.jpg");
+    imgLevelThree = loadImage("level3.jpg");
     }
 
   public void draw() {
