@@ -175,7 +175,23 @@ public class Sketch extends PApplet {
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
-    }
+
+      if (playerLives == 3) {
+          image(imgOneLife, 640, 10);
+          image(imgOneLife, 700, 10);
+          image(imgOneLife, 760, 10);
+        }
+      else if (playerLives == 2) {
+          image(imgOneLife, 700, 10);
+          image(imgOneLife, 760, 10);
+        }
+      else if (playerLives == 1) {
+          image(imgOneLife, 760, 10);
+        }
+      else if (playerLives == 0) {
+          screen = 5;
+          }
+  }
 
   public void levelTwo() {
     background(imgLevelTwo);
@@ -211,6 +227,22 @@ public class Sketch extends PApplet {
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
+
+      if (playerLives == 3) {
+            image(imgOneLife, 640, 10);
+            image(imgOneLife, 700, 10);
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 2) {
+            image(imgOneLife, 700, 10);
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 1) {
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 0) {
+            screen = 5;
+            }
     }
 
   public void levelThree() {
@@ -247,6 +279,22 @@ public class Sketch extends PApplet {
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
+
+      if (playerLives == 3) {
+            image(imgOneLife, 640, 10);
+            image(imgOneLife, 700, 10);
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 2) {
+            image(imgOneLife, 700, 10);
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 1) {
+            image(imgOneLife, 760, 10);
+          }
+      else if (playerLives == 0) {
+            screen = 5;
+            }
     }
 
   public void gameOver() {
