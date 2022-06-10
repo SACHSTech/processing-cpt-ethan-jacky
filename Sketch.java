@@ -14,7 +14,7 @@ public class Sketch extends PApplet {
   boolean alive = true;
   int playerLives = 3;
 
-  int timerOne = 6000;
+  int timerOne = 1800;
   int timerTwo = 90;
   int timerThree = 120;
 
@@ -53,8 +53,8 @@ public class Sketch extends PApplet {
   public void setup() {
     circleX = width;
     circleY = height;
-    circleDiameter = 40;
-
+    circleDiameter = 25;
+    
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(800,800);
     imgGameOver = loadImage("gameover.png");
@@ -84,6 +84,7 @@ public class Sketch extends PApplet {
       if (timerOne == 0) {
         playerLives = 0;
         screen = 5;
+        frameRate(30);
       }
     }
     if (screen == 3) {
@@ -95,6 +96,7 @@ public class Sketch extends PApplet {
       if (timerTwo == 0) {
         playerLives = 0;
         screen = 5;
+        frameRate(30);
       }
     }
     if (screen == 4) {
@@ -106,6 +108,7 @@ public class Sketch extends PApplet {
       if (timerThree == 0) {
         playerLives = 0;
         screen = 5;
+        frameRate(30);
       }
     }
     if (screen == 5) {
@@ -173,7 +176,7 @@ public class Sketch extends PApplet {
         }
       }
       // draw circle
-        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+        ellipse(265, 650, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
       if (playerLives == 3) {
@@ -312,7 +315,7 @@ public class Sketch extends PApplet {
     text("TRY AGAIN", 55, 345);
 
     if (mousePressed == true) {
-      timerOne = 60;
+      timerOne = 1800;
       timerTwo = 90;
       timerThree = 120;
       alive = true;
@@ -372,7 +375,7 @@ public class Sketch extends PApplet {
       text("TRY AGAIN", 55, 345);
   
       if (mousePressed == true) {
-        timerOne = 60;
+        timerOne = 1800;
         timerTwo = 90;
         timerThree = 120;
         alive = true;
