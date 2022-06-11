@@ -14,9 +14,9 @@ public class Sketch extends PApplet {
   boolean alive = true;
   int playerLives = 3;
 
-  int timerOne = 1800;
-  int timerTwo = 90;
-  int timerThree = 120;
+  int timerOne = 60000;
+  int timerTwo = 90000;
+  int timerThree = 120000;
 
   PImage imgBackground;
   PImage imgGameOver;
@@ -51,8 +51,8 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    circleX = width;
-    circleY = height;
+    circleX = 268;
+    circleY = 650;
     circleDiameter = 25;
     
     imgBackground = loadImage("background.jpeg");
@@ -84,7 +84,7 @@ public class Sketch extends PApplet {
       if (timerOne == 0) {
         playerLives = 0;
         screen = 5;
-        frameRate(30);
+      
       }
     }
     if (screen == 3) {
@@ -96,7 +96,7 @@ public class Sketch extends PApplet {
       if (timerTwo == 0) {
         playerLives = 0;
         screen = 5;
-        frameRate(30);
+       
       }
     }
     if (screen == 4) {
@@ -108,7 +108,7 @@ public class Sketch extends PApplet {
       if (timerThree == 0) {
         playerLives = 0;
         screen = 5;
-        frameRate(30);
+        
       }
     }
     if (screen == 5) {
@@ -173,10 +173,11 @@ public class Sketch extends PApplet {
         }
         else if(keyCode == RIGHT){
          circleX++; 
+         System.out.println("penis");
         }
       }
       // draw circle
-        ellipse(265, 650, circleDiameter, circleDiameter);
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
       if (playerLives == 3) {
