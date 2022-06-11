@@ -14,9 +14,9 @@ public class Sketch1 extends PApplet {
   boolean alive = true;
   int playerLives = 3;
 
-  int timerOne = 6000;
-  int timerTwo = 90;
-  int timerThree = 120;
+  int timerOne = 60000;
+  int timerTwo = 90000;
+  int timerThree = 120000;
 
   PImage imgBackground;
   PImage imgGameOver;
@@ -177,16 +177,16 @@ public class Sketch1 extends PApplet {
           fill(0, 0, 255);
 
       if (playerLives == 3) {
-          image(imgOneLife, 640, 10);
-          image(imgOneLife, 700, 10);
-          image(imgOneLife, 760, 10);
+          image(imgOneLife, 600, 10);
+          image(imgOneLife, 660, 10);
+          image(imgOneLife, 720, 10);
         }
       else if (playerLives == 2) {
-          image(imgOneLife, 700, 10);
-          image(imgOneLife, 760, 10);
+          image(imgOneLife, 660, 10);
+          image(imgOneLife, 720, 10);
         }
       else if (playerLives == 1) {
-          image(imgOneLife, 760, 10);
+          image(imgOneLife, 720, 10);
         }
       else if (playerLives == 0) {
           screen = 5;
@@ -228,19 +228,19 @@ public class Sketch1 extends PApplet {
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
-      if (playerLives == 3) {
-            image(imgOneLife, 640, 10);
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+          if (playerLives == 3) {
+            image(imgOneLife, 600, 10);
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 2) {
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 2) {
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 1) {
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 1) {
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 0) {
+        else if (playerLives == 0) {
             screen = 5;
             }
     }
@@ -280,19 +280,19 @@ public class Sketch1 extends PApplet {
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
-      if (playerLives == 3) {
-            image(imgOneLife, 640, 10);
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+          if (playerLives == 3) {
+            image(imgOneLife, 600, 10);
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 2) {
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 2) {
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 1) {
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 1) {
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 0) {
+        else if (playerLives == 0) {
             screen = 5;
             }
     }
