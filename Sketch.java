@@ -79,7 +79,7 @@ public class Sketch extends PApplet {
       levelOne();
 
       timerOne--;
-      System.out.println(timerOne);
+      System.out.println("TIME: " + timerOne);
 
       if (timerOne == 0) {
         playerLives = 0;
@@ -91,7 +91,7 @@ public class Sketch extends PApplet {
       levelTwo();
 
       timerTwo--;
-      System.out.println(timerTwo);
+      System.out.println("TIME: " + timerTwo);
 
       if (timerTwo == 0) {
         playerLives = 0;
@@ -103,7 +103,7 @@ public class Sketch extends PApplet {
       levelThree();
 
       timerThree--;
-      System.out.println(timerThree);
+      System.out.println("TIME: " + timerThree);
 
       if (timerThree == 0) {
         playerLives = 0;
@@ -173,7 +173,6 @@ public class Sketch extends PApplet {
         }
         else if(keyCode == RIGHT){
          circleX++; 
-         System.out.println("penis");
         }
       }
       // draw circle
