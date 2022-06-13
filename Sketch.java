@@ -152,7 +152,7 @@ public class Sketch extends PApplet {
       levelOne();
 
       timerOne--;
-      System.out.println(timerOne);
+      System.out.println("TIME: " + timerOne);
 
       if (timerOne == 0) {
         playerLives = 0;
@@ -164,8 +164,7 @@ public class Sketch extends PApplet {
       levelTwo();
 
       timerTwo--;
-      System.out.println(timerTwo);
-      
+      System.out.println("TIME: " + timerTwo);
 
       if (timerTwo == 0) {
         playerLives = 0;
@@ -177,7 +176,7 @@ public class Sketch extends PApplet {
       levelThree();
 
       timerThree--;
-      System.out.println(timerThree);
+      System.out.println("TIME: " + timerThree);
 
       if (timerThree == 0) {
         playerLives = 0;
@@ -247,29 +246,28 @@ public class Sketch extends PApplet {
         }
         else if(keyCode == RIGHT){
          circleXOne++; 
-         System.out.println("penis");
         }
       }
       // draw circle
         ellipse(circleXOne, circleYOne, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
-      if (playerLives == 3) {
-          image(imgOneLife, 640, 10);
-          image(imgOneLife, 700, 10);
-          image(imgOneLife, 760, 10);
-        }
-      else if (playerLives == 2) {
-          image(imgOneLife, 700, 10);
-          image(imgOneLife, 760, 10);
-        }
-      else if (playerLives == 1) {
-          image(imgOneLife, 760, 10);
-        }
-      else if (playerLives == 0) {
-          screen = 5;
+          if (playerLives == 3) {
+            image(imgOneLife, 600, 10);
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-  }
+        else if (playerLives == 2) {
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
+          }
+        else if (playerLives == 1) {
+            image(imgOneLife, 720, 10);
+          }
+        else if (playerLives == 0) {
+            screen = 5;
+            }
+    }
 
   public void levelTwo() {
      levels(grid2, obstacles2);
@@ -306,19 +304,19 @@ public class Sketch extends PApplet {
         ellipse(circleXTwo, circleYTwo, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
-      if (playerLives == 3) {
-            image(imgOneLife, 640, 10);
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+          if (playerLives == 3) {
+            image(imgOneLife, 600, 10);
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 2) {
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 2) {
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 1) {
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 1) {
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 0) {
+        else if (playerLives == 0) {
             screen = 5;
             }
     }
@@ -358,19 +356,19 @@ public class Sketch extends PApplet {
         ellipse(circleXThree, circleYThree, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
-      if (playerLives == 3) {
-            image(imgOneLife, 640, 10);
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+          if (playerLives == 3) {
+            image(imgOneLife, 600, 10);
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 2) {
-            image(imgOneLife, 700, 10);
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 2) {
+            image(imgOneLife, 660, 10);
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 1) {
-            image(imgOneLife, 760, 10);
+        else if (playerLives == 1) {
+            image(imgOneLife, 720, 10);
           }
-      else if (playerLives == 0) {
+        else if (playerLives == 0) {
             screen = 5;
             }
     }
@@ -554,4 +552,5 @@ public class Sketch extends PApplet {
         }
       }
     }
+  }
 }
