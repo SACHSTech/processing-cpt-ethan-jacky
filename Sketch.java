@@ -1,14 +1,22 @@
 import processing.core.PApplet;
 import processing.core.PImage;
+import java.util.HashMap;
 
 public class Sketch extends PApplet {
   
+  int rows = 16;
+  int columns = 16;
+
   boolean upPressed = false;
   boolean downPressed = false;
   boolean leftPressed = false;
   boolean rightPressed = false;
-  float circleX;
-  float circleY;
+  float circleXOne;
+  float circleYOne;
+  float circleXTwo;
+  float circleYTwo;
+  float circleXThree;
+  float circleYThree;
   float circleDiameter;
 
   boolean alive = true;
@@ -28,6 +36,62 @@ public class Sketch extends PApplet {
   PImage imgScary;
   PImage imgYouWin;
 
+  HashMap<Float, Float> obstacles1 = new HashMap<Float, Float>();
+  HashMap<Float, Float> obstacles2 = new HashMap<Float, Float>();
+  HashMap<Float, Float> obstacles3 = new HashMap<Float, Float>();
+
+   // level design (0 = empty, 1 = filled in)
+  int [][] grid1 = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,3,3,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,3,3,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1},
+                     {1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1},
+                     {1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1},
+                     {1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,2,2,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, };
+  
+  int [][] grid2 = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, };
+
+  int [][] grid3 = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
+                     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, };                 
+               
   /*
   Screen 1 - Home Screen
   Screen 2 - Level 1
@@ -51,8 +115,17 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
-    circleX = 268;
-    circleY = 650;
+
+    obstaclesPos1();
+    obstaclesPos2();
+    obstaclesPos3();
+
+    circleXOne = 268;
+    circleYOne = 650;
+    circleXTwo = 600;
+    circleYTwo = 250;
+    circleXThree = 150;
+    circleYThree = 650;
     circleDiameter = 25;
     
     imgBackground = loadImage("background.jpeg");
@@ -92,6 +165,7 @@ public class Sketch extends PApplet {
 
       timerTwo--;
       System.out.println(timerTwo);
+      
 
       if (timerTwo == 0) {
         playerLives = 0;
@@ -145,14 +219,14 @@ public class Sketch extends PApplet {
   }
 
   public void levelOne() {
-    background(imgLevelOne);
+     levels(grid1, obstacles1);
 
-    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+    if (dist(mouseX, mouseY, circleXOne, circleYOne) < circleDiameter/2) {
 
       if (mousePressed) {
         // mouse is inside the circle and clicked. 
-        circleX = mouseX;
-        circleY = mouseY;
+        circleXOne = mouseX;
+        circleYOne = mouseY;
   
       } 
       else {
@@ -163,21 +237,21 @@ public class Sketch extends PApplet {
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
-          circleY--;
+          circleYOne--;
         } 
         else if (keyCode == DOWN) {
-          circleY++;
+          circleYOne++;
         } 
         else if(keyCode == LEFT){
-          circleX--;
+          circleXOne--;
         }
         else if(keyCode == RIGHT){
-         circleX++; 
+         circleXOne++; 
          System.out.println("penis");
         }
       }
       // draw circle
-        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+        ellipse(circleXOne, circleYOne, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
       if (playerLives == 3) {
@@ -198,14 +272,14 @@ public class Sketch extends PApplet {
   }
 
   public void levelTwo() {
-    background(imgLevelTwo);
+     levels(grid2, obstacles2);
 
-    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+    if (dist(mouseX, mouseY, circleXTwo, circleYTwo) < circleDiameter/2) {
 
       if (mousePressed) {
         // mouse is inside the circle and clicked. 
-        circleX = mouseX;
-        circleY = mouseY;
+        circleXTwo = mouseX;
+        circleYTwo = mouseY;
   
       } 
       else {
@@ -216,20 +290,20 @@ public class Sketch extends PApplet {
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
-          circleY--;
+          circleYTwo--;
         } 
         else if (keyCode == DOWN) {
-          circleY++;
+          circleYTwo++;
         } 
         else if(keyCode == LEFT){
-          circleX--;
+          circleXTwo--;
         }
         else if(keyCode == RIGHT){
-         circleX++; 
+         circleXTwo++; 
         }
       }
       // draw circle
-        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+        ellipse(circleXTwo, circleYTwo, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
       if (playerLives == 3) {
@@ -250,14 +324,14 @@ public class Sketch extends PApplet {
     }
 
   public void levelThree() {
-    background(imgLevelThree);
+     levels(grid3, obstacles3);
 
-    if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
+    if (dist(mouseX, mouseY, circleXThree, circleYThree) < circleDiameter/2) {
 
       if (mousePressed) {
         // mouse is inside the circle and clicked. 
-        circleX = mouseX;
-        circleY = mouseY;
+        circleXThree = mouseX;
+        circleYThree = mouseY;
   
       } 
       else {
@@ -268,20 +342,20 @@ public class Sketch extends PApplet {
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
-          circleY--;
+          circleYThree--;
         } 
         else if (keyCode == DOWN) {
-          circleY++;
+          circleYThree++;
         } 
         else if(keyCode == LEFT){
-          circleX--;
+          circleXThree--;
         }
         else if(keyCode == RIGHT){
-         circleX++; 
+         circleXThree++; 
         }
       }
       // draw circle
-        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+        ellipse(circleXThree, circleYThree, circleDiameter, circleDiameter);
           fill(0, 0, 255);
 
       if (playerLives == 3) {
@@ -321,8 +395,12 @@ public class Sketch extends PApplet {
       timerThree = 120;
       alive = true;
       playerLives = 3;
-      circleX = 200;
-      circleY = 400;
+      circleXOne = 200;
+      circleYOne = 400;
+      circleXTwo = 200;
+      circleYTwo = 400;
+      circleXThree = 200;
+      circleYThree = 400;
       upPressed = false;
       downPressed = false;
       leftPressed = false;
@@ -381,8 +459,12 @@ public class Sketch extends PApplet {
         timerThree = 120;
         alive = true;
         playerLives = 3;
-        circleX = 200;
-        circleY = 400;
+        circleXOne = 200;
+        circleYOne = 400;
+        circleXTwo = 200;
+        circleYTwo = 400;
+        circleXThree = 200;
+        circleYThree = 400;
         upPressed = false;
         downPressed = false;
         leftPressed = false;
@@ -421,4 +503,55 @@ public class Sketch extends PApplet {
       text("NO THANKS", 55, 595);
     }
   }
+   /**
+  * Draws the levels 
+  * 
+  * @param level  the level to be played (1,2,3)
+  * @param obstaclePos  the positions of the obstacles
+  */
+  public void levels(int [][] level, HashMap<Float, Float> obstaclePos) {
+    // interval for obstacle appearing
+    if (count == 165) {
+      count = 0;
+    }
+    count++;
+    // 60 iterations = 1 second
+    if (count2 == 60) {
+      seconds++;
+      count2 = 0;
+    }
+    count2++;
+    if(seconds == 60) {
+      minutes++;
+      seconds = 0;
+    }
+
+    // draw grid
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < columns; j++) {
+        unitX = unitWidth * i;
+        unitY = unitHeight * j;
+
+        // fill the walls in
+        if (level[j][i] == 1) {
+          fill(1);
+        } 
+        else {
+          noFill();
+        }
+        rect(unitX, unitY, unitWidth, unitHeight);
+
+        // fill the obstacles in
+        if (difficulty == "Easy") {
+          if (count >= 0 && count <= 100) {
+            obstacles(obstaclePos);
+          }
+        }
+        else if (difficulty == "Hard") {
+          if (count >= 0 && count <= 140) {
+            obstacles(obstaclePos);
+          }
+        }
+      }
+    }
 }
