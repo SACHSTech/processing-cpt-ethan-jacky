@@ -121,9 +121,9 @@ public class Sketch extends PApplet {
    */
   public void setup() {
 
-    timerOne = 60000;
-    timerTwo = 90000;
-    timerThree = 120000;
+    timerOne = 6000;
+    timerTwo = 9000;
+    timerThree = 12000;
 
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(800,800);
@@ -222,6 +222,11 @@ public class Sketch extends PApplet {
 
   public void levelOne() {
      levels(grid1);
+     fill(255); // Black
+     textSize(30);
+     text("LEVEL 1", 20, 50);
+     text("TIME: ", 350, 50);
+     text(timerOne/100, 450, 50);
      circleX = 268;
      circleY = 650;
 
@@ -276,6 +281,11 @@ public class Sketch extends PApplet {
 
   public void levelTwo() {
      levels(grid2);
+     fill(255); // Black
+     textSize(30);
+     text("LEVEL 2", 20, 50);
+     text("TIME: ", 350, 50);
+     text(timerTwo/100, 450, 50);
      circleX = 600;
      circleY = 250;
 
@@ -330,6 +340,11 @@ public class Sketch extends PApplet {
 
   public void levelThree() {
      levels(grid3);
+     fill(255); // Black
+     textSize(30);
+     text("LEVEL 3", 20, 50);
+     text("TIME: ", 350, 50);
+     text(timerThree/100, 450, 50);
      circleX = 150;
      circleY = 650;
 
