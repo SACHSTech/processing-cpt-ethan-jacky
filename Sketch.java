@@ -412,9 +412,9 @@ public class Sketch extends PApplet {
     text("TRY AGAIN", 55, 345);
 
     if (mousePressed == true) {
-      timerOne = 1800;
-      timerTwo = 90;
-      timerThree = 120;
+      timerOne = 6000;
+      timerTwo = 9000;
+      timerThree = 12000;
       alive = true;
       playerLives = 3;
       upPressed = false;
@@ -470,9 +470,9 @@ public class Sketch extends PApplet {
       text("TRY AGAIN", 55, 345);
   
       if (mousePressed == true) {
-        timerOne = 1800;
-        timerTwo = 90;
-        timerThree = 120;
+        timerOne = 6000;
+        timerTwo = 9000;
+        timerThree = 12000;
         alive = true;
         playerLives = 3;
         upPressed = false;
