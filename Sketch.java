@@ -121,9 +121,9 @@ public class Sketch extends PApplet {
    */
   public void setup() {
 
-    timerOne = 6000;
-    timerTwo = 9000;
-    timerThree = 12000;
+    timerOne = 6100;
+    timerTwo = 9100;
+    timerThree = 12100;
 
     imgBackground = loadImage("background.jpeg");
     imgBackground.resize(800,800);
@@ -412,9 +412,9 @@ public class Sketch extends PApplet {
     text("TRY AGAIN", 55, 345);
 
     if (mousePressed == true) {
-      timerOne = 6000;
-      timerTwo = 9000;
-      timerThree = 12000;
+      timerOne = 6100;
+      timerTwo = 9100;
+      timerThree = 12100;
       alive = true;
       playerLives = 3;
       upPressed = false;
@@ -470,9 +470,9 @@ public class Sketch extends PApplet {
       text("TRY AGAIN", 55, 345);
   
       if (mousePressed == true) {
-        timerOne = 6000;
-        timerTwo = 9000;
-        timerThree = 12000;
+        timerOne = 6100;
+        timerTwo = 9100;
+        timerThree = 12100;
         alive = true;
         playerLives = 3;
         upPressed = false;
