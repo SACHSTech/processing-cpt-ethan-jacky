@@ -107,6 +107,12 @@ public class Sketch1 extends PApplet {
         if (timerOne == 0) {
          playerLives = 0;
          screen = 5;
+
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
       
        }
       }
@@ -118,6 +124,12 @@ public class Sketch1 extends PApplet {
         if (timerTwo == 0) {
           playerLives = 0;
           screen = 5;
+
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
        
         }
       }
@@ -129,6 +141,12 @@ public class Sketch1 extends PApplet {
         if (timerThree == 0) {
           playerLives = 0;
           screen = 5;
+
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
         
         }
       }

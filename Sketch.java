@@ -16,7 +16,6 @@ public class Sketch extends PApplet {
   boolean leftPressed = false;
   boolean rightPressed = false;
   boolean gameRunning = true;
-  
 
   float circleX;
   float circleY;
@@ -144,7 +143,7 @@ public class Sketch extends PApplet {
     }
 
   public void draw() {
-  
+
     // methods to set individual screens for levels
     if (gameRunning) {
       if (screen == 1) {
@@ -155,11 +154,18 @@ public class Sketch extends PApplet {
         levelOne();
         
         // timer for level one
+       
         timerOne--;
         if (timerOne == 0) {
          playerLives = 0;
          screen = 5;
-      
+        
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
+        
        }
       }
       if (screen == 3) {
@@ -170,6 +176,13 @@ public class Sketch extends PApplet {
         if (timerTwo == 0) {
           playerLives = 0;
           screen = 5;
+
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
+        
        
         }
       }
@@ -181,6 +194,13 @@ public class Sketch extends PApplet {
         if (timerThree == 0) {
           playerLives = 0;
           screen = 5;
+
+        // prompts user to press character when not pressed to finish the level faster
+        while (mousePressed = false);
+          fill(255); // White
+          textSize(40);
+          text("PLEASE PRESS CHARACTER", 250, 150);
+        
         
         }
       }
@@ -256,6 +276,9 @@ public class Sketch extends PApplet {
         }
         else if(keyCode == RIGHT){
          circleX++; 
+        }
+        else {
+          keyReleased();
         }
       }
       // draw circle
