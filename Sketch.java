@@ -135,10 +135,12 @@ public class Sketch extends PApplet {
 
     // methods to set individual screens for levels
     if (gameRunning) {
+      
       if (screen == 1) {
         homeScreen();
         
       }
+
       if (screen == 2) {
         levelOne();
         
@@ -157,6 +159,7 @@ public class Sketch extends PApplet {
         
        }
       }
+
       if (screen == 3) {
         levelTwo();
         
@@ -175,6 +178,7 @@ public class Sketch extends PApplet {
        
         }
       }
+
       if (screen == 4) {
         levelThree();
 
@@ -193,9 +197,11 @@ public class Sketch extends PApplet {
         
         }
       }
+
       if (screen == 5) {
         gameOver(); // this screen appears when the player loses the game
       }
+
       if (screen == 6) {
         youWin(); // this screen appears when the player wins the game
       }
@@ -272,6 +278,7 @@ public class Sketch extends PApplet {
           keyReleased();
         }
       }
+
       // draw circle
       ellipse(circleX, circleY, circleDiameter, circleDiameter);
         fill(255);
@@ -336,6 +343,7 @@ public class Sketch extends PApplet {
          circleX++; 
         }
       }
+
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
