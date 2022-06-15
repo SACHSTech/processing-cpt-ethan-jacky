@@ -2,7 +2,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Sketch extends PApplet {
+public class Sketch1 extends PApplet {
   
   int rows = 16;
   int columns = 16;
@@ -401,9 +401,9 @@ public class Sketch extends PApplet {
     fill(0, 8, 150); // Blue
     textSize(50);
     text("NO", 55, 595);
+    }
   }
-  
- }
+}
 
   public void youWin() {
     background(255);
@@ -430,4 +430,4 @@ public class Sketch extends PApplet {
         screen = 2;
       }
     }
-  
+  }
