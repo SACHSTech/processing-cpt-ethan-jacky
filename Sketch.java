@@ -120,7 +120,7 @@ public class Sketch extends PApplet {
     timerTwo = 2580;
     timerThree = 3580;
 
-    circleDiameter = 25;
+    circleDiameter = 50;
   // images
     imgBackground = loadImage("background.jpg");
     imgBackground.resize(800,800);
@@ -444,8 +444,8 @@ public class Sketch extends PApplet {
       downPressed = false;
       leftPressed = false;
       rightPressed = false;
-      screen = 2;
-      levelOne();
+      screen = 1;
+      homeScreen();
     }
   }
   else {
@@ -467,6 +467,15 @@ public class Sketch extends PApplet {
     text("NO", 55, 595); // user doesn't want to try again
 
     if (mousePressed == true) {
+      timerOne = 2080;
+      timerTwo = 2580;
+      timerThree = 3580;
+      alive = true;
+      playerLives = 3;
+      upPressed = false;
+      downPressed = false;
+      leftPressed = false;
+      rightPressed = false;
       screen = 1;
       homeScreen();
     }
