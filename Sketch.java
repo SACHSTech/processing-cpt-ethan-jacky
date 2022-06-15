@@ -100,6 +100,7 @@ public class Sketch extends PApplet {
   Screen 5 - Game over
   Screen 6 - You Win!
    */
+  
   int screen = 1;
 
   /**
@@ -121,6 +122,7 @@ public class Sketch extends PApplet {
     timerThree = 3580;
 
     circleDiameter = 50;
+
   // images
     imgBackground = loadImage("background.jpg");
     imgBackground.resize(800,800);
@@ -135,7 +137,7 @@ public class Sketch extends PApplet {
 
     // methods to set individual screens for levels
     if (gameRunning) {
-      
+
       if (screen == 1) {
         homeScreen();
         
