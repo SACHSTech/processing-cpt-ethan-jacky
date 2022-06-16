@@ -52,7 +52,15 @@ public class Sketch extends PApplet {
   PImage imgHomescreen;
   PImage imgOneLife;
   PImage imgScary;
+  PImage imgScaryOne;
+  PImage imgScaryTwo;
+  PImage imgScaryThree;
+  PImage imgScaryFour;
+  PImage imgScaryFive;
+  PImage imgScarySix;
+  
   PImage imgYouWin;
+
 
    // level design (0, 2, 3 = empty, 1 = filled in)
   int [][] grid1 = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -132,8 +140,8 @@ public class Sketch extends PApplet {
   public void setup() {
 
     timerOne = 2080;
-    timerTwo = 2580;
-    timerThree = 3580;
+    timerTwo = 3580;
+    timerThree = 4580;
 
 
     circleDiameter = 25;
@@ -144,10 +152,23 @@ public class Sketch extends PApplet {
     imgHomescreen = loadImage("homescreen.jpg");
     imgHomescreen.resize(800,800);
     imgOneLife = loadImage("onelife.png");
+    imgScaryOne = loadImage("scary1.png");
+    imgScaryOne.resize(400, 400);
+    imgScaryTwo = loadImage("scary2.png");
+    imgScaryTwo.resize(200, 400);
+    imgScaryThree= loadImage("scary3.png");
+    imgScaryThree.resize(400, 400);
     imgScary = loadImage("scary.png");
     imgScary.resize(400, 400);
+    imgScaryFour = loadImage("scary4.png");
+    imgScaryFour.resize(400, 400);
+    imgScaryFive = loadImage("scary5.png");
+    imgScaryFive.resize(400, 400);
+    imgScarySix = loadImage("scary6.png");
+    imgScarySix.resize(400, 400);
     imgYouWin = loadImage("youwin.png");
     imgYouWin.resize(800,800);
+    
     }
 
   public void draw() {
@@ -262,9 +283,11 @@ public class Sketch extends PApplet {
      text("TIME: ", 350, 50);
      text(timerOne/100, 450, 50);
 
-     // scary image
-     image(imgScary, 70, 10);
+     // scary images
+     image(imgScaryOne, 30, 10);
      image(imgScary, 500, 200);
+     image(imgScaryFive, 200, 450);
+
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) 
 
@@ -317,8 +340,8 @@ public class Sketch extends PApplet {
           }
         else if (playerLives == 0) {
             timerOne = 2080;
-            timerTwo = 2580;
-            timerThree = 3580;
+            timerTwo = 3580;
+            timerThree = 4580;
             playerLives = 3;
             screen = 5;
             }
@@ -334,9 +357,10 @@ public class Sketch extends PApplet {
      text("TIME: ", 350, 50);
      text(timerTwo/100, 450, 50);
 
-     // scary image
-     image(imgScary, 100, 10);
-     
+     // scary images
+     image(imgScaryTwo, 220, 10);
+     image(imgScary, 390,200);
+     image(imgScaryFour,120, 600);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
 
@@ -389,8 +413,8 @@ public class Sketch extends PApplet {
           }
         else if (playerLives == 0) {
             timerOne = 2080;
-            timerTwo = 2580;
-            timerThree = 3580;
+            timerTwo = 3580;
+            timerThree = 4580;
             playerLives = 3;
             screen = 5;
             }
@@ -405,6 +429,11 @@ public class Sketch extends PApplet {
      text("LEVEL 3", 20, 50);
      text("TIME: ", 350, 50);
      text(timerThree/100, 450, 50);
+
+     // scary images
+     image(imgScaryThree, 10, 200);
+     image(imgScary, 350, 200);
+     image(imgScarySix, 200,600);
     
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
@@ -457,8 +486,8 @@ public class Sketch extends PApplet {
           }
         else if (playerLives == 0) {
             timerOne = 2080;
-            timerTwo = 2580;
-            timerThree = 3580;
+            timerTwo = 3580;
+            timerThree = 4580;
             playerLives = 3;
             screen = 5;
             }
@@ -478,8 +507,8 @@ public class Sketch extends PApplet {
     // game is resetted and back to the beginning
     if (mousePressed == true) {
       timerOne = 2080;
-      timerTwo = 2580;
-      timerThree = 3580;
+      timerTwo = 3580;
+      timerThree = 4580;
       alive = true;
       playerLives = 3;
       upPressed = false;
@@ -510,8 +539,8 @@ public class Sketch extends PApplet {
 
     if (mousePressed == true) {
       timerOne = 2080;
-      timerTwo = 2580;
-      timerThree = 3580;
+      timerTwo = 3580;
+      timerThree = 4580;
       alive = true;
       playerLives = 3;
       upPressed = false;
@@ -546,8 +575,8 @@ public class Sketch extends PApplet {
   
       if (mousePressed == true) {
         timerOne = 2080;
-        timerTwo = 2580;
-        timerThree = 3580;
+        timerTwo = 3580;
+        timerThree = 4580;
         alive = true;
         playerLives = 3;
         upPressed = false;
@@ -577,8 +606,8 @@ public class Sketch extends PApplet {
   
       if (mousePressed == true) {
         timerOne = 2080;
-        timerTwo = 2580;
-        timerThree = 3580;
+        timerTwo = 3580;
+        timerThree = 4580;
         alive = true;
         playerLives = 3;
         upPressed = false;
