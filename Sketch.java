@@ -3,6 +3,19 @@ import processing.core.PImage;
 
 public class Sketch extends PApplet {
   
+  /**
+   * Assignment: 6.1 Processing in Java CPT
+   * Author: Ethan Au, Jacky Wang
+   * Due Jun 13, 11:59 PM
+   * Description: The The objective of the Scary Maze Game is to navigate your character with mouse and keyboard controls 
+   * to get to the other end of the maze before the alloted amount of three lives and time you have runs out. There are three 
+   * levels with different mazes to get through, which each get progressively harder. As you progress through the levels, 
+   * there will be extra time added on from considering the added difficulty. There are two ways to navigate your character 
+   * through the maze. One way is to use the direction keys - up, left, right, and down to move the character slightly and accordingly. 
+   * The other way is to click the mouse and drag it to drag the character through the maze. Movement through the maze must be done with 
+   * the character remaining in the maze AT ALL TIMES, and within the allotted time limit. GOOD LUCK!!!!!!!!!
+   */
+
   // setup of variables
 
   int rows = 16;
