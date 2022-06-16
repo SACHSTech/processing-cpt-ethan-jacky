@@ -20,16 +20,8 @@ public class Sketch1 extends PApplet {
   float circleY;
   float circleDiameter;
 
-  int circleXIndex;
-  int circleYIndex;
-
-  float unitWidth = width/rows;
-  float unitHeight = width/columns;
-  float unitX;
-  float unitY;
-
-  boolean alive = true;
-  int playerLives = 3;
+  boolean alive = false;
+  int playerLives = 4;
 
   int timerOne;
   int timerTwo;
@@ -38,9 +30,9 @@ public class Sketch1 extends PApplet {
   PImage imgBackground;
   PImage imgHomescreen;
   PImage imgOneLife;
+  PImage imgScary;
   PImage imgYouWin;
 
-   
   /*
   Screen 1 - Home Screen
   Screen 2 - Level 1
@@ -49,6 +41,7 @@ public class Sketch1 extends PApplet {
   Screen 5 - Game over
   Screen 6 - You Win!
    */
+  
   int screen = 1;
 
   /**
@@ -69,13 +62,17 @@ public class Sketch1 extends PApplet {
     timerTwo = 2580;
     timerThree = 3580;
 
-    circleDiameter = 50;
+
+    circleDiameter = 25;
+
   // images
     imgBackground = loadImage("background.jpg");
     imgBackground.resize(800,800);
     imgHomescreen = loadImage("homescreen.jpg");
     imgHomescreen.resize(800,800);
     imgOneLife = loadImage("onelife.png");
+    imgScary = loadImage("scary.png");
+    imgScary.resize(400, 400);
     imgYouWin = loadImage("youwin.png");
     imgYouWin.resize(800,800);
     }
@@ -84,10 +81,12 @@ public class Sketch1 extends PApplet {
 
     // methods to set individual screens for levels
     if (gameRunning) {
+
       if (screen == 1) {
         homeScreen();
         
       }
+
       if (screen == 2) {
         levelOne();
         
@@ -106,6 +105,7 @@ public class Sketch1 extends PApplet {
         
        }
       }
+
       if (screen == 3) {
         levelTwo();
         
@@ -124,6 +124,7 @@ public class Sketch1 extends PApplet {
        
         }
       }
+
       if (screen == 4) {
         levelThree();
 
@@ -142,9 +143,11 @@ public class Sketch1 extends PApplet {
         
         }
       }
+
       if (screen == 5) {
         gameOver(); // this screen appears when the player loses the game
       }
+
       if (screen == 6) {
         youWin(); // this screen appears when the player wins the game
       }
@@ -158,14 +161,14 @@ public class Sketch1 extends PApplet {
     textSize(70);
     text("SCARY MAZE GAME", 75, 150);
 
-    if ((mouseX >= 0 && mouseX <= 800) && (mouseY >= 0 && mouseY <= 800)) {
-      fill(0); // Black
-      rect(50, 600, 700, 50);
+    fill(0); // Black
+    rect(50, 600, 700, 50);
   
-      fill(255,0,0); // Red
-      textSize(50);
-      text("PLAY", 55, 645); // starts the game if pressed
-  
+    fill(255,0,0); // Red
+    textSize(50);
+    text("PLAY", 55, 645); // starts the game if pressed
+
+    if ((mouseX >= 50 && mouseX <= 800) && (mouseY >= 600 && mouseY <= 650)) {
       if (mousePressed == true) {
         screen = 2;
       }
@@ -186,6 +189,9 @@ public class Sketch1 extends PApplet {
      text("TIME: ", 350, 50);
      text(timerOne/100, 450, 50);
 
+     // scary image
+     image(imgScary, 70, 10);
+     image(imgScary, 500, 200);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) 
 
@@ -199,6 +205,7 @@ public class Sketch1 extends PApplet {
         mouseClicked(); {
         }
       }
+      
 
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
@@ -214,16 +221,14 @@ public class Sketch1 extends PApplet {
         else if(keyCode == RIGHT){
          circleX++; 
         }
-        else {
-          keyReleased();
-        }
       }
+
       // draw circle
       ellipse(circleX, circleY, circleDiameter, circleDiameter);
         fill(255);
 
-          // visible player lives
-          if (playerLives == 3) {
+        // visible player lives
+        if (playerLives == 3) {
             image(imgOneLife, 600, 10);
             image(imgOneLife, 660, 10);
             image(imgOneLife, 720, 10);
@@ -236,6 +241,10 @@ public class Sketch1 extends PApplet {
             image(imgOneLife, 720, 10);
           }
         else if (playerLives == 0) {
+            timerOne = 2080;
+            timerTwo = 2580;
+            timerThree = 3580;
+            playerLives = 3;
             screen = 5;
             }
     }
@@ -249,6 +258,9 @@ public class Sketch1 extends PApplet {
      text("LEVEL 2", 20, 50);
      text("TIME: ", 350, 50);
      text(timerTwo/100, 450, 50);
+
+     // scary image
+     image(imgScary, 100, 10);
      
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
@@ -277,9 +289,10 @@ public class Sketch1 extends PApplet {
           circleX--;
         }
         else if(keyCode == RIGHT){
-         circleX++; 
+          circleX++; 
         }
       }
+
       // draw circle
         ellipse(circleX, circleY, circleDiameter, circleDiameter);
           fill(0, 0, 255);
@@ -298,6 +311,10 @@ public class Sketch1 extends PApplet {
             image(imgOneLife, 720, 10);
           }
         else if (playerLives == 0) {
+            timerOne = 2080;
+            timerTwo = 2580;
+            timerThree = 3580;
+            playerLives = 3;
             screen = 5;
             }
     }
@@ -325,7 +342,6 @@ public class Sketch1 extends PApplet {
         mouseClicked(); {
     }
       }}
-
     
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
@@ -360,6 +376,10 @@ public class Sketch1 extends PApplet {
             image(imgOneLife, 720, 10);
           }
         else if (playerLives == 0) {
+            timerOne = 2080;
+            timerTwo = 2580;
+            timerThree = 3580;
+            playerLives = 3;
             screen = 5;
             }
     }
@@ -386,8 +406,8 @@ public class Sketch1 extends PApplet {
       downPressed = false;
       leftPressed = false;
       rightPressed = false;
-      screen = 1;
-      homeScreen();
+      screen = 2;
+
     }
   }
   else {
@@ -419,7 +439,6 @@ public class Sketch1 extends PApplet {
       leftPressed = false;
       rightPressed = false;
       screen = 1;
-      homeScreen();
     }
   }
   else {
@@ -456,7 +475,48 @@ public class Sketch1 extends PApplet {
         leftPressed = false;
         rightPressed = false;
         screen = 2;
-        levelOne();
       }
     }
+    else {
+      fill(0); // Black
+      rect(50, 200, 700, 50);
+  
+      fill(0,255,255); // Cyan
+      textSize(50);
+      text("PLAY AGAIN", 55, 245);
+    }
+    
+  
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 550 && mouseY <= 600)) {
+      fill(255,0,0); // Red
+      rect(50, 550, 700, 50);
+  
+      fill(0); // Black
+      textSize(50);
+      text("NO THANKS", 55, 595); // user doesn't want to try again
+  
+      if (mousePressed == true) {
+        timerOne = 2080;
+        timerTwo = 2580;
+        timerThree = 3580;
+        alive = true;
+        playerLives = 3;
+        upPressed = false;
+        downPressed = false;
+        leftPressed = false;
+        rightPressed = false;
+        screen = 1;
+    
+      }
+    }
+    else {
+      fill(0); // Black
+      rect(50, 550, 700, 50);
+  
+      fill(255,0,0); // Red
+      textSize(50);
+      text("NO THANKS", 55, 595);
+    }
   }
+}
+  

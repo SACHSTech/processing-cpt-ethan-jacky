@@ -66,16 +66,109 @@ public class Sketch2 extends PApplet {
                      {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, };                 
                
   
+  public void homeScreen() {
+    background(imgHomescreen);
 
- 
-      
-      circleXIndex = (int) circleX/50;
-      circleYIndex = (int) circleY/50;
+    // title
+    fill(255,0,0); // Red
+    textSize(70);
+    text("SCARY MAZE GAME", 75, 150);
 
+    fill(0); // Black
+    rect(50, 600, 700, 50);
   
-      circleXIndex = (int) circleX/50;
-      circleYIndex = (int) circleY/50;
-        
+    fill(255,0,0); // Red
+    textSize(50);
+    text("PLAY", 55, 645); // starts the game if pressed
+
+    if ((mouseX >= 50 && mouseX <= 800) && (mouseY >= 600 && mouseY <= 650)) {
+      if (mousePressed == true) {
+        screen = 2;
+      }
+    }
+    else {
+      mousePressed = false; {
+      }
+    } 
+  }
+
+  public void gameOver() {
+    background(imgBackground);
+
+  if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 200 && mouseY <= 250)) {
+    fill(0,255,255); // Cyan
+    rect(50, 200, 700, 50);
+
+    fill(0); // Black
+    textSize(50);
+    text("TRY AGAIN", 55, 245); // allows user to try again
+
+    // game is resetted and back to the beginning
+    if (mousePressed == true) {
+      timerOne = 2080;
+      timerTwo = 2580;
+      timerThree = 3580;
+      alive = true;
+      playerLives = 3;
+      upPressed = false;
+      downPressed = false;
+      leftPressed = false;
+      rightPressed = false;
+      screen = 2;
+
+    }
+  }
+  else {
+    fill(0); // Black
+    rect(50, 200, 700, 50);
+
+    fill(0,255,255); // Cyan
+    textSize(50);
+    text("TRY AGAIN", 55, 245);
+  }
+  
+
+  if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 550 && mouseY <= 600)) {
+    fill(255,0,0); // Red
+    rect(50, 550, 700, 50);
+
+    fill(0); // Black
+    textSize(50);
+    text("NO", 55, 595); // user doesn't want to try again
+
+    if (mousePressed == true) {
+      timerOne = 2080;
+      timerTwo = 2580;
+      timerThree = 3580;
+      alive = true;
+      playerLives = 3;
+      upPressed = false;
+      downPressed = false;
+      leftPressed = false;
+      rightPressed = false;
+      screen = 1;
+    }
+  }
+  else {
+    fill(0); // Black
+    rect(50, 550, 700, 50);
+
+    fill(255,0,0); // Red
+    textSize(50);
+    text("NO", 55, 595);
+  }
+  
+ 
+    }
+    else {
+      fill(0); // Black
+      rect(50, 550, 700, 50);
+  
+      fill(255,0,0); // Red
+      textSize(50);
+      text("NO THANKS", 55, 595);
+    }
+  }
    /**
   * Draws the levels 
   * 
@@ -120,6 +213,7 @@ public class Sketch2 extends PApplet {
         circleX = 250;
         circleY = 650;
         playerLives--;
+     
       }
        // goes to screen 3 if circle goes on index 3 
         else if (grid1[circleYIndex][circleXIndex] == 3) {
@@ -128,6 +222,7 @@ public class Sketch2 extends PApplet {
         }
       }
     if (screen == 3) {
+
       if (grid2[circleYIndex][circleXIndex] == 1) {
         // deduct a player life and reset circle position if it goes on index 1 on the grid
           playerLives--;
@@ -160,4 +255,3 @@ public class Sketch2 extends PApplet {
   
   
   
-
