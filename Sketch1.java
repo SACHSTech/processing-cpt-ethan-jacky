@@ -1,13 +1,12 @@
-
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class Sketch1 extends PApplet {
   
   // setup of variables
+
   int rows = 16;
   int columns = 16;
-  
   int width = 800;
   int height = 800;
 
@@ -17,15 +16,15 @@ public class Sketch1 extends PApplet {
   boolean rightPressed = false;
   boolean gameRunning = true;
   
-
   float circleX;
   float circleY;
   float circleDiameter;
 
+  int circleXIndex;
+  int circleYIndex;
+
   float unitWidth = width/rows;
   float unitHeight = width/columns;
-  float playerX = unitWidth;
-  float playerY = unitHeight;
   float unitX;
   float unitY;
 
@@ -35,17 +34,13 @@ public class Sketch1 extends PApplet {
   int timerOne;
   int timerTwo;
   int timerThree;
-
+  
   PImage imgBackground;
-  PImage imgGameOver;
   PImage imgHomescreen;
-  PImage imgLevelOne;
-  PImage imgLevelTwo;
-  PImage imgLevelThree;
   PImage imgOneLife;
-  PImage imgScary;
   PImage imgYouWin;
 
+   
   /*
   Screen 1 - Home Screen
   Screen 2 - Level 1
@@ -70,29 +65,23 @@ public class Sketch1 extends PApplet {
    */
   public void setup() {
 
-    timerOne = 6100;
-    timerTwo = 9100;
-    timerThree = 12100;
+    timerOne = 2080;
+    timerTwo = 2580;
+    timerThree = 3580;
 
-    // images
-    imgBackground = loadImage("background.jpeg");
+    circleDiameter = 50;
+  // images
+    imgBackground = loadImage("background.jpg");
     imgBackground.resize(800,800);
-    imgGameOver = loadImage("gameover.png");
     imgHomescreen = loadImage("homescreen.jpg");
     imgHomescreen.resize(800,800);
-    imgLevelOne = loadImage("level1.jpg");
-    imgLevelOne.resize(800,800);
-    imgLevelTwo = loadImage("level2.jpg");
-    imgLevelTwo.resize(800,800);
-    imgLevelThree = loadImage("level3.jpg");
-    imgLevelThree.resize(800,800);
     imgOneLife = loadImage("onelife.png");
-    imgScary = loadImage("scary.png");
     imgYouWin = loadImage("youwin.png");
+    imgYouWin.resize(800,800);
     }
 
   public void draw() {
-  
+
     // methods to set individual screens for levels
     if (gameRunning) {
       if (screen == 1) {
@@ -103,23 +92,24 @@ public class Sketch1 extends PApplet {
         levelOne();
         
         // timer for level one
+       
         timerOne--;
         if (timerOne == 0) {
          playerLives = 0;
          screen = 5;
-
+        
         // prompts user to press character when not pressed to finish the level faster
         while (mousePressed = false);
           fill(255); // White
           textSize(40);
           text("PLEASE PRESS CHARACTER", 250, 150);
-      
+        
        }
       }
       if (screen == 3) {
         levelTwo();
-
-        // timer for level two
+        
+      // timer for level 2
         timerTwo--;
         if (timerTwo == 0) {
           playerLives = 0;
@@ -130,6 +120,7 @@ public class Sketch1 extends PApplet {
           fill(255); // White
           textSize(40);
           text("PLEASE PRESS CHARACTER", 250, 150);
+        
        
         }
       }
@@ -148,6 +139,7 @@ public class Sketch1 extends PApplet {
           textSize(40);
           text("PLEASE PRESS CHARACTER", 250, 150);
         
+        
         }
       }
       if (screen == 5) {
@@ -162,15 +154,15 @@ public class Sketch1 extends PApplet {
     background(imgHomescreen);
 
     // title
-    fill(255); // White
+    fill(255,0,0); // Red
     textSize(70);
     text("SCARY MAZE GAME", 75, 150);
 
     if ((mouseX >= 0 && mouseX <= 800) && (mouseY >= 0 && mouseY <= 800)) {
-      fill(246, 255, 0); // Yellow
+      fill(0); // Black
       rect(50, 600, 700, 50);
   
-      fill(255); // Black
+      fill(255,0,0); // Red
       textSize(50);
       text("PLAY", 55, 645); // starts the game if pressed
   
@@ -185,7 +177,7 @@ public class Sketch1 extends PApplet {
   }
 
   public void levelOne() {
-     levels(grid1);
+     levels(1);
      fill(255); // Black
      textSize(30);
 
@@ -193,8 +185,7 @@ public class Sketch1 extends PApplet {
      text("LEVEL 1", 20, 50);
      text("TIME: ", 350, 50);
      text(timerOne/100, 450, 50);
-     circleX = 268;
-     circleY = 650;
+
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) 
 
@@ -208,7 +199,7 @@ public class Sketch1 extends PApplet {
         mouseClicked(); {
         }
       }
-    
+
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
@@ -222,6 +213,9 @@ public class Sketch1 extends PApplet {
         }
         else if(keyCode == RIGHT){
          circleX++; 
+        }
+        else {
+          keyReleased();
         }
       }
       // draw circle
@@ -255,8 +249,7 @@ public class Sketch1 extends PApplet {
      text("LEVEL 2", 20, 50);
      text("TIME: ", 350, 50);
      text(timerTwo/100, 450, 50);
-     circleX = 600;
-     circleY = 250;
+     
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
 
@@ -269,8 +262,9 @@ public class Sketch1 extends PApplet {
       else {
         mouseClicked(); {
     }
-      }}
-    
+      }
+    }
+        
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
         if (keyCode == UP) {
@@ -317,8 +311,7 @@ public class Sketch1 extends PApplet {
      text("LEVEL 3", 20, 50);
      text("TIME: ", 350, 50);
      text(timerThree/100, 450, 50);
-     circleX = 150;
-     circleY = 650;
+    
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {
 
@@ -332,6 +325,7 @@ public class Sketch1 extends PApplet {
         mouseClicked(); {
     }
       }}
+
     
         // circle moves accordingly to what arrow directions user presses
       if (keyPressed) {
@@ -372,45 +366,42 @@ public class Sketch1 extends PApplet {
 
   public void gameOver() {
     background(imgBackground);
-    image(imgGameOver, 220, 50);
-    image(imgScary, 100, 100);
-    image(imgScary, 700, 100);
 
-  if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
-    fill(1, 94, 41); // Green
-    rect(50, 300, 700, 50);
+  if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 200 && mouseY <= 250)) {
+    fill(0,255,255); // Cyan
+    rect(50, 200, 700, 50);
 
     fill(0); // Black
     textSize(50);
-    text("TRY AGAIN", 55, 345); // allows user to try again
+    text("TRY AGAIN", 55, 245); // allows user to try again
 
     // game is resetted and back to the beginning
     if (mousePressed == true) {
-      timerOne = 6100;
-      timerTwo = 9100;
-      timerThree = 12100;
+      timerOne = 2080;
+      timerTwo = 2580;
+      timerThree = 3580;
       alive = true;
       playerLives = 3;
       upPressed = false;
       downPressed = false;
       leftPressed = false;
       rightPressed = false;
-      screen = 2;
-      levelOne();
+      screen = 1;
+      homeScreen();
     }
   }
   else {
     fill(0); // Black
-    rect(50, 300, 700, 50);
+    rect(50, 200, 700, 50);
 
-    fill(1, 94, 41); // Green
+    fill(0,255,255); // Cyan
     textSize(50);
-    text("TRY AGAIN", 55, 345);
+    text("TRY AGAIN", 55, 245);
   }
   
 
   if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 550 && mouseY <= 600)) {
-    fill(0, 8, 150); // Blue
+    fill(255,0,0); // Red
     rect(50, 550, 700, 50);
 
     fill(0); // Black
@@ -418,6 +409,15 @@ public class Sketch1 extends PApplet {
     text("NO", 55, 595); // user doesn't want to try again
 
     if (mousePressed == true) {
+      timerOne = 2080;
+      timerTwo = 2580;
+      timerThree = 3580;
+      alive = true;
+      playerLives = 3;
+      upPressed = false;
+      downPressed = false;
+      leftPressed = false;
+      rightPressed = false;
       screen = 1;
       homeScreen();
     }
@@ -426,29 +426,29 @@ public class Sketch1 extends PApplet {
     fill(0); // Black
     rect(50, 550, 700, 50);
 
-    fill(0, 8, 150); // Blue
+    fill(255,0,0); // Red
     textSize(50);
     text("NO", 55, 595);
-    }
   }
-}
+  
+ }
 
   public void youWin() {
-    background(255);
-    image(imgYouWin, 220, 220);
+    background(imgYouWin);
+  
 
-    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 300 && mouseY <= 350)) {
-      fill(1, 94, 41); // Green
-      rect(50, 300, 700, 50);
+    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 200 && mouseY <= 250)) {
+      fill(0,255,255); // Cyan
+      rect(50, 200, 700, 50);
   
       fill(0); // Black
       textSize(50);
-      text("TRY AGAIN", 55, 345); // allows user to try again
+      text("PLAY AGAIN", 55, 245); // allows user to try again
   
       if (mousePressed == true) {
-        timerOne = 6100;
-        timerTwo = 9100;
-        timerThree = 12100;
+        timerOne = 2080;
+        timerTwo = 2580;
+        timerThree = 3580;
         alive = true;
         playerLives = 3;
         upPressed = false;
