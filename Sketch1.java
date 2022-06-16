@@ -459,39 +459,4 @@ public class Sketch1 extends PApplet {
         levelOne();
       }
     }
-    else {
-      fill(0); // Black
-      rect(50, 200, 700, 50);
-  
-      fill(0,255,255); // Cyan
-      textSize(50);
-      text("PLAY AGAIN", 55, 245);
-    }
-    
-  
-    if ((mouseX >= 50 && mouseX <= 750) && (mouseY >= 550 && mouseY <= 600)) {
-      fill(255,0,0); // Red
-      rect(50, 550, 700, 50);
-  
-      fill(0); // Black
-      textSize(50);
-      text("NO THANKS", 55, 595); // user doesn't want to try again
-  
-      if (mousePressed == true) {
-        screen = 1;
-        homeScreen();
-      }
-    }
-    else {
-      fill(0); // Black
-      rect(50, 550, 700, 50);
-  
-      fill(255,0,0); // Red
-      textSize(50);
-      text("NO THANKS", 55, 595);
-    }
   }
-  
-  
-  
-
