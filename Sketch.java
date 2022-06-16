@@ -225,7 +225,7 @@ public class Sketch extends PApplet {
     textSize(50);
     text("PLAY", 55, 645); // starts the game if pressed
 
-    if ((mouseX >= 50 && mouseX <= 800) && (mouseY >= 600 && mouseY <= 800)) {
+    if ((mouseX >= 50 && mouseX <= 800) && (mouseY >= 600 && mouseY <= 650)) {
       if (mousePressed == true) {
         screen = 2;
       }
