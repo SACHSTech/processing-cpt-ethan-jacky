@@ -2,7 +2,7 @@
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Sketch extends PApplet {
+public class Sketch1 extends PApplet {
   
   int rows = 16;
   int columns = 16;
@@ -228,7 +228,6 @@ public class Sketch extends PApplet {
     }
 
   public void levelTwo() {
-     levels(grid2);
      fill(255); // Black
      textSize(30);
      text("LEVEL 2", 20, 50);
@@ -287,7 +286,6 @@ public class Sketch extends PApplet {
     }
 
   public void levelThree() {
-     levels(grid3);
      fill(255); // Black
      textSize(30);
      text("LEVEL 3", 20, 50);
