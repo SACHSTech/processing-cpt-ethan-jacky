@@ -38,6 +38,7 @@ public class Sketch extends PApplet {
   PImage imgBackground;
   PImage imgHomescreen;
   PImage imgOneLife;
+  PImage imgScary;
   PImage imgYouWin;
 
    // level design (0, 2, 3 = empty, 1 = filled in)
@@ -130,6 +131,8 @@ public class Sketch extends PApplet {
     imgHomescreen = loadImage("homescreen.jpg");
     imgHomescreen.resize(800,800);
     imgOneLife = loadImage("onelife.png");
+    imgScary = loadImage("scary.png");
+    imgScary.resize(400, 400);
     imgYouWin = loadImage("youwin.png");
     imgYouWin.resize(800,800);
     }
@@ -246,6 +249,9 @@ public class Sketch extends PApplet {
      text("TIME: ", 350, 50);
      text(timerOne/100, 450, 50);
 
+     // scary image
+     image(imgScary, 70, 10);
+     image(imgScary, 500, 200);
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) 
 
@@ -283,8 +289,8 @@ public class Sketch extends PApplet {
       ellipse(circleX, circleY, circleDiameter, circleDiameter);
         fill(255);
 
-          // visible player lives
-          if (playerLives == 3) {
+        // visible player lives
+        if (playerLives == 3) {
             image(imgOneLife, 600, 10);
             image(imgOneLife, 660, 10);
             image(imgOneLife, 720, 10);
@@ -314,6 +320,9 @@ public class Sketch extends PApplet {
      text("LEVEL 2", 20, 50);
      text("TIME: ", 350, 50);
      text(timerTwo/100, 450, 50);
+
+     // scary image
+     image(imgScary, 100, 10);
      
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {

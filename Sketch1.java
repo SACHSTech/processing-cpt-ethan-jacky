@@ -177,7 +177,7 @@ public class Sketch1 extends PApplet {
   }
 
   public void levelOne() {
-     levels(1);
+     levels(grid1);
      fill(255); // Black
      textSize(30);
 
