@@ -258,8 +258,9 @@ public class Sketch1 extends PApplet {
      text("TIME: ", 350, 50);
      text(timerTwo/100, 450, 50);
 
-     // scary image
-     image(imgScary, 100, 10);
+     // scary images
+     image(imgScary, 390,200);
+     
      
 
     if (dist(mouseX, mouseY, circleX, circleY) < circleDiameter/2) {

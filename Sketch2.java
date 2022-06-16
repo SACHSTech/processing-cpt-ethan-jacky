@@ -5,6 +5,21 @@ public class Sketch2 extends PApplet {
   
   // setup of variables
 
+  int rows = 16;
+  int columns = 16;
+  int width = 800;
+  int height = 800;
+
+  boolean upPressed = false;
+  boolean downPressed = false;
+  boolean leftPressed = false;
+  boolean rightPressed = false;
+  boolean gameRunning = true;
+  
+  float circleX;
+  float circleY;
+  float circleDiameter;
+
   int circleXIndex;
   int circleYIndex;
 
@@ -12,6 +27,26 @@ public class Sketch2 extends PApplet {
   float unitHeight = width/columns;
   float unitX;
   float unitY;
+
+  boolean alive = false;
+  int playerLives = 4;
+
+  int timerOne;
+  int timerTwo;
+  int timerThree;
+  
+  PImage imgBackground;
+  PImage imgHomescreen;
+  PImage imgOneLife;
+  PImage imgScary;
+  PImage imgScaryOne;
+  PImage imgScaryTwo;
+  PImage imgScaryThree;
+  PImage imgScaryFour;
+  PImage imgScaryFive;
+  PImage imgScarySix;
+  PImage imgYouWin;
+
 
    // level design (0, 2, 3 = empty, 1 = filled in)
   int [][] grid1 = { {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -65,7 +100,29 @@ public class Sketch2 extends PApplet {
                      {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, 
                      {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}, };                 
                
-  
+   public void setup() {
+
+
+    circleDiameter = 25;
+
+  // images
+    imgScaryOne = loadImage("scary1.png");
+    imgScaryOne.resize(400, 400);
+    imgScaryTwo = loadImage("scary2.png");
+    imgScaryTwo.resize(200, 400);
+    imgScaryThree= loadImage("scary3.png");
+    imgScaryThree.resize(400, 400);
+    imgScary = loadImage("scary.png");
+    imgScary.resize(400, 400);
+    imgScaryFour = loadImage("scary4.png");
+    imgScaryFour.resize(400, 400);
+    imgScaryFive = loadImage("scary5.png");
+    imgScaryFive.resize(400, 400);
+    imgScarySix = loadImage("scary6.png");
+    imgScarySix.resize(400, 400);
+
+    
+    }
   public void homeScreen() {
     background(imgHomescreen);
 
@@ -91,6 +148,97 @@ public class Sketch2 extends PApplet {
       }
     } 
   }
+  public void levelOne() {
+     levels(grid1);
+
+      // scary images
+     image(imgScaryOne, 30, 10);
+     image(imgScary, 500, 200);
+     image(imgScaryFive, 200, 450);
+
+      
+
+        // circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+         circleX++; 
+        }
+      }
+
+      // draw circle
+      ellipse(circleX, circleY, circleDiameter, circleDiameter);
+        fill(255);
+
+    }
+
+  public void levelTwo() {
+     levels(grid2);
+
+     image(imgScaryTwo, 220, 10);
+     image(imgScary, 390,200);
+     image(imgScaryFour,120, 600);
+     
+        
+        // circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+          circleX++; 
+        }
+      }
+
+      // draw circle
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+          fill(0, 0, 255);
+    }
+
+  public void levelThree() {
+    levels(grid3);
+      
+    // scary images
+     image(imgScaryThree, 10, 200);
+     image(imgScary, 350, 200);
+     image(imgScarySix, 200,600);
+    
+    
+        // circle moves accordingly to what arrow directions user presses
+      if (keyPressed) {
+        if (keyCode == UP) {
+          circleY--;
+        } 
+        else if (keyCode == DOWN) {
+          circleY++;
+        } 
+        else if(keyCode == LEFT){
+          circleX--;
+        }
+        else if(keyCode == RIGHT){
+         circleX++; 
+        }
+      }
+      // draw circle
+        ellipse(circleX, circleY, circleDiameter, circleDiameter);
+          fill(0, 0, 255);
+
+       
+    }
 
   public void gameOver() {
     background(imgBackground);

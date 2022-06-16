@@ -58,7 +58,6 @@ public class Sketch extends PApplet {
   PImage imgScaryFour;
   PImage imgScaryFive;
   PImage imgScarySix;
-  
   PImage imgYouWin;
 
 
